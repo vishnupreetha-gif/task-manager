@@ -17,6 +17,10 @@ var catFilterBtns = document.querySelectorAll(".cat-filter-btn");
 var searchInput = document.getElementById("searchInput");
 var dots = document.querySelectorAll(".dot");
 
+var helpBtn = document.getElementById("helpBtn");
+var helpOverlay = document.getElementById("helpOverlay");
+var helpClose = document.getElementById("helpClose");
+
 var cartoonPerson = document.getElementById("cartoonPerson");
 var personMouth = document.getElementById("personMouth");
 var personSpeech = document.getElementById("personSpeech");
@@ -293,6 +297,21 @@ catFilterBtns.forEach(function (btn) {
 // ===== SEARCH =====
 searchInput.addEventListener("input", function () {
     renderTasks();
+});
+
+// Help modal toggle
+helpBtn.addEventListener("click", function () {
+    helpOverlay.classList.add("active");
+});
+
+helpClose.addEventListener("click", function () {
+    helpOverlay.classList.remove("active");
+});
+
+helpOverlay.addEventListener("click", function (e) {
+    if (e.target === helpOverlay) {
+        helpOverlay.classList.remove("active");
+    }
 });
 
 // Dark mode toggle

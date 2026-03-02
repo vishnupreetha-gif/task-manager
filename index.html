@@ -14,9 +14,14 @@
         <div class="input-panel">
             <div class="header">
                 <h1><i class="fa-solid fa-clipboard-check"></i> Task Manager</h1>
-                <button id="darkModeBtn" title="Toggle Dark Mode">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
+                <div class="header-buttons">
+                    <button id="helpBtn" title="How to Use">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </button>
+                    <button id="darkModeBtn" title="Toggle Dark Mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
             </div>
             <p class="subtitle">Stay organized, get things done</p>
 
@@ -178,6 +183,52 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- Help Modal -->
+    <div class="help-overlay" id="helpOverlay">
+        <div class="help-modal">
+            <button class="help-close" id="helpClose"><i class="fa-solid fa-xmark"></i></button>
+            <h2><i class="fa-solid fa-circle-question"></i> How to Use Task Manager</h2>
+
+            <div class="help-section">
+                <h3><i class="fa-solid fa-plus-circle"></i> Adding a Task</h3>
+                <ol>
+                    <li><strong>Step 1:</strong> Type your task name and click <strong>Next</strong></li>
+                    <li><strong>Step 2:</strong> Pick a due date or click <strong>Skip</strong></li>
+                    <li><strong>Step 3:</strong> Choose a category — Work, Personal, Shopping, or Study</li>
+                    <li><strong>Step 4:</strong> Set priority — Low, Medium, or High</li>
+                    <li>Click <strong>Add Task</strong> and you're done!</li>
+                </ol>
+            </div>
+
+            <div class="help-section">
+                <h3><i class="fa-solid fa-pen-to-square"></i> Managing Tasks</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check" style="color:#27ae60"></i> Click the <strong>checkbox</strong> to mark a task as done</li>
+                    <li><i class="fa-solid fa-pencil" style="color:#667eea"></i> Click the <strong>edit icon</strong> to rename a task</li>
+                    <li><i class="fa-solid fa-trash" style="color:#e74c3c"></i> Click the <strong>delete icon</strong> to remove a task</li>
+                </ul>
+            </div>
+
+            <div class="help-section">
+                <h3><i class="fa-solid fa-filter"></i> Search & Filter</h3>
+                <ul>
+                    <li><i class="fa-solid fa-magnifying-glass"></i> Use the <strong>search bar</strong> to find tasks by name</li>
+                    <li><i class="fa-solid fa-list"></i> Filter by <strong>All</strong>, <strong>Pending</strong>, or <strong>Done</strong></li>
+                    <li><i class="fa-solid fa-briefcase"></i> Filter by <strong>category</strong> using the icons</li>
+                </ul>
+            </div>
+
+            <div class="help-section">
+                <h3><i class="fa-solid fa-star"></i> Extra Features</h3>
+                <ul>
+                    <li><i class="fa-solid fa-moon"></i> <strong>Dark Mode</strong> — click the moon icon to switch themes</li>
+                    <li><i class="fa-solid fa-chart-bar"></i> <strong>Progress Bar</strong> — tracks your completion percentage</li>
+                    <li><i class="fa-solid fa-baby"></i> <strong>Boss Baby</strong> — she reacts as you add and complete tasks!</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script src="app.js"></script>
