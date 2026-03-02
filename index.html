@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-layout">
+
+        <!-- LEFT SIDE: Input Area -->
+        <div class="input-panel">
+            <div class="header">
+                <h1><i class="fa-solid fa-clipboard-check"></i> Task Manager</h1>
+                <button id="darkModeBtn" title="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+            <p class="subtitle">Stay organized, get things done</p>
+
+            <!-- Animated Boss Baby Girl -->
+            <div class="cartoon-boss" id="cartoonPerson">
+                <div class="boss-baby">
+                    <div class="baby-head">
+                        <div class="baby-hair"></div>
+                        <div class="baby-hair-strand"></div>
+                        <div class="baby-hair-strand strand-right"></div>
+                        <div class="baby-bow"></div>
+                        <div class="baby-face">
+                            <div class="baby-eyelash left-lash"></div>
+                            <div class="baby-eyelash right-lash"></div>
+                            <div class="baby-eye left-eye">
+                                <div class="baby-pupil"></div>
+                            </div>
+                            <div class="baby-eye right-eye">
+                                <div class="baby-pupil"></div>
+                            </div>
+                            <div class="baby-cheek left-cheek"></div>
+                            <div class="baby-cheek right-cheek"></div>
+                            <div class="baby-nose"></div>
+                            <div class="baby-mouth" id="personMouth"></div>
+                        </div>
+                    </div>
+                    <div class="baby-body">
+                        <div class="baby-suit">
+                            <div class="baby-tie"></div>
+                            <div class="baby-pocket"></div>
+                        </div>
+                        <div class="baby-arm left-arm" id="bossLeftArm">
+                            <div class="baby-hand left-hand"></div>
+                        </div>
+                        <div class="baby-arm right-arm" id="bossRightArm">
+                            <div class="baby-hand right-hand">
+                                <div class="baby-briefcase" id="babyBriefcase"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="baby-legs">
+                        <div class="baby-leg left-leg">
+                            <div class="baby-shoe"></div>
+                        </div>
+                        <div class="baby-leg right-leg">
+                            <div class="baby-shoe"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="person-speech" id="personSpeech">Hi! Let's get things done!</div>
+            </div>
+
+            <div class="step-form">
+                <!-- Step 1: Task Name -->
+                <div class="step active" id="step1">
+                    <div class="step-label">Step 1 of 4 — Task Name</div>
+                    <input type="text" id="taskInput" placeholder="What do you need to do?">
+                    <button class="next-btn" id="nextBtn1"><i class="fa-solid fa-arrow-right"></i> Next</button>
+                </div>
+
+                <!-- Step 2: Due Date -->
+                <div class="step" id="step2">
+                    <div class="step-label">Step 2 of 4 — Due Date</div>
+                    <input type="date" id="dueDateInput">
+                    <div class="step-buttons">
+                        <button class="back-btn" id="backBtn2"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                        <button class="skip-btn" id="skipBtn2">Skip</button>
+                        <button class="next-btn" id="nextBtn2"><i class="fa-solid fa-arrow-right"></i> Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Category -->
+                <div class="step" id="step3">
+                    <div class="step-label">Step 3 of 4 — Category</div>
+                    <div class="category-options">
+                        <button class="category-btn selected" data-category="work" style="--cat-color: #667eea"><i class="fa-solid fa-briefcase"></i> Work</button>
+                        <button class="category-btn" data-category="personal" style="--cat-color: #e74c3c"><i class="fa-solid fa-user"></i> Personal</button>
+                        <button class="category-btn" data-category="shopping" style="--cat-color: #27ae60"><i class="fa-solid fa-cart-shopping"></i> Shopping</button>
+                        <button class="category-btn" data-category="study" style="--cat-color: #f39c12"><i class="fa-solid fa-book"></i> Study</button>
+                    </div>
+                    <div class="step-buttons">
+                        <button class="back-btn" id="backBtn3"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                        <button class="next-btn" id="nextBtn3"><i class="fa-solid fa-arrow-right"></i> Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Priority -->
+                <div class="step" id="step4">
+                    <div class="step-label">Step 4 of 4 — Priority</div>
+                    <div class="priority-options">
+                        <button class="priority-btn low" data-priority="low"><i class="fa-solid fa-flag"></i> Low</button>
+                        <button class="priority-btn medium selected" data-priority="medium"><i class="fa-solid fa-flag"></i> Medium</button>
+                        <button class="priority-btn high" data-priority="high"><i class="fa-solid fa-flag"></i> High</button>
+                    </div>
+                    <div class="step-buttons">
+                        <button class="back-btn" id="backBtn4"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                        <button class="add-btn" id="addBtn"><i class="fa-solid fa-plus"></i> Add Task</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step Dots -->
+            <div class="step-dots">
+                <span class="dot active" data-step="1"></span>
+                <span class="dot" data-step="2"></span>
+                <span class="dot" data-step="3"></span>
+                <span class="dot" data-step="4"></span>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Task List (always visible) -->
+        <div class="list-panel">
+            <div class="list-header">
+                <h2><i class="fa-solid fa-list-check"></i> My Tasks</h2>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-text" id="progressText">0% complete</span>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search tasks...">
+            </div>
+
+            <!-- Category Filter -->
+            <div class="category-filters">
+                <button class="cat-filter-btn active" data-cat="all" title="All Categories"><i class="fa-solid fa-layer-group"></i> All</button>
+                <button class="cat-filter-btn" data-cat="work" style="--cat-color: #667eea" title="Work"><i class="fa-solid fa-briefcase"></i></button>
+                <button class="cat-filter-btn" data-cat="personal" style="--cat-color: #e74c3c" title="Personal"><i class="fa-solid fa-user"></i></button>
+                <button class="cat-filter-btn" data-cat="shopping" style="--cat-color: #27ae60" title="Shopping"><i class="fa-solid fa-cart-shopping"></i></button>
+                <button class="cat-filter-btn" data-cat="study" style="--cat-color: #f39c12" title="Study"><i class="fa-solid fa-book"></i></button>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fa-solid fa-list"></i> All
+                </button>
+                <button class="filter-btn" data-filter="pending">
+                    <i class="fa-regular fa-clock"></i> Pending
+                </button>
+                <button class="filter-btn" data-filter="done">
+                    <i class="fa-solid fa-check"></i> Done
+                </button>
+            </div>
+
+            <ul id="taskList"></ul>
+
+            <p id="emptyMsg"><i class="fa-regular fa-face-smile"></i> No tasks yet. Add one!</p>
+
+            <div class="stats">
+                <span id="totalTasks"><i class="fa-solid fa-list-ol"></i> Total: 0</span>
+                <span id="completedTasks"><i class="fa-solid fa-circle-check"></i> Done: 0</span>
+                <span id="pendingTasks"><i class="fa-solid fa-spinner"></i> Pending: 0</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
